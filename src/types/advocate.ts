@@ -7,3 +7,7 @@ export interface Advocate {
   yearsOfExperience: number;
   phoneNumber: number;
 }
+
+export interface AdvocatesApiResponse {
+  data: Advocate[];
+}
