@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { Advocate } from "@/types";
+import { Advocate, AdvocatesApiResponse } from "@/types";
 
 export default function Home() {
   const [advocates, setAdvocates] = useState<Advocate[]>([]);
@@ -20,7 +20,7 @@ export default function Home() {
         throw new Error(`Failed to fetch advocates: ${response.status}`);
       }
 
-      const jsonResponse = await response.json();
+      const jsonResponse: AdvocatesApiResponse = await response.json();
       setAdvocates(jsonResponse.data);
       setFilteredAdvocates(jsonResponse.data);
     } catch (err) {
