@@ -5,7 +5,7 @@ export interface Advocate {
   degree: string;
   specialties: string[];
   yearsOfExperience: number;
-  phoneNumber: number;
+  phoneNumber: string;
 }
 
 export interface AdvocatesApiResponse {
