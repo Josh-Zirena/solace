@@ -38,17 +38,17 @@ export default function Home() {
   }, [fetchAdvocates]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchTermValue = e.target.value;
-    setSearchTerm(searchTermValue);
+    const searchTermValue = e.target.value.trim().toLowerCase();
+    setSearchTerm(e.target.value);
 
     console.log("filtering advocates...");
     const filteredAdvocates = advocates.filter((advocate) => {
       return (
-        advocate.firstName.includes(searchTermValue) ||
-        advocate.lastName.includes(searchTermValue) ||
-        advocate.city.includes(searchTermValue) ||
-        advocate.degree.includes(searchTermValue) ||
-        advocate.specialties.join(" ").includes(searchTermValue) ||
+        advocate.firstName.toLowerCase().includes(searchTermValue) ||
+        advocate.lastName.toLowerCase().includes(searchTermValue) ||
+        advocate.city.toLowerCase().includes(searchTermValue) ||
+        advocate.degree.toLowerCase().includes(searchTermValue) ||
+        advocate.specialties.join(" ").toLowerCase().includes(searchTermValue) ||
         advocate.yearsOfExperience.toString().includes(searchTermValue)
       );
     });
